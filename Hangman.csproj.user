@@ -7,12 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Headmenu.xaml.cs">
+    <Compile Update="Views\Headmenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Headmenu.xaml">
+    <Page Update="Views\Headmenu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

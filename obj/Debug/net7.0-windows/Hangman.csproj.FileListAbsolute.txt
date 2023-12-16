@@ -61,5 +61,5 @@ D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-wi
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Hangman.pdb
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Hangman.genruntimeconfig.cache
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\ref\Hangman.dll
-D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Headmenu.g.cs
-D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Headmenu.baml
+D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\Headmenu.g.cs
+D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\Headmenu.baml
