@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\GalgjeAchtergrond1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\GalgjeAchtergrond1.jpg" />
   </ItemGroup>
 
 </Project>

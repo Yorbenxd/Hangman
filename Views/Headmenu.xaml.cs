@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hangman.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,33 @@ namespace Hangman
         {
             InitializeComponent();
         }
-    }
+
+		private void mnuNewGame_Click(object sender, RoutedEventArgs e)
+		{
+			StartNewGame();
+			Close();
+		}
+
+		private void StartNewGame()
+		{
+			NewGame newGame = new NewGame();
+			newGame.Show();
+		}
+
+
+		private void mnuAllHighscore_Click(object sender, RoutedEventArgs e)
+		{
+
+        }
+
+		private void mnuHighscore_Click(object sender, RoutedEventArgs e)
+		{
+
+        }
+
+		private void mnuQuit_Click(object sender, RoutedEventArgs e)
+		{
+			this.Close();
+		}
+	}
 }

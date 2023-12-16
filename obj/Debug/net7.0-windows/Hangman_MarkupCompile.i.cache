@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\App.xaml
-22092064328
+31986335944
 
-8826003455
+9770825327
 216-1157376723
-MainWindow.xaml;Views\Headmenu.xaml;
+MainWindow.xaml;Views\Headmenu.xaml;Views\NewGame.xaml;
 
 False
 
