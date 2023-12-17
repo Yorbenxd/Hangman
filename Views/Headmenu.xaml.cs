@@ -1,4 +1,6 @@
-﻿using Hangman.Views;
+﻿using Hangman.Models;
+using Hangman.Views;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,13 +44,25 @@ namespace Hangman
 
 		private void mnuAllHighscore_Click(object sender, RoutedEventArgs e)
 		{
-
+			// when bool true: show all highscores
+			bool score = true;
+			ShowScores(score);
+			Close();
         }
 
 		private void mnuHighscore_Click(object sender, RoutedEventArgs e)
 		{
+			// when bool false: show personal highscores
+			bool score = false;
+			ShowScores(score);
+			Close();
+		}
 
-        }
+		private void ShowScores(bool score)
+		{
+			Highscores highscore = new Highscores(currentUser, score);
+			highscore.Show();
+		}
 
 		private void mnuQuit_Click(object sender, RoutedEventArgs e)
 		{

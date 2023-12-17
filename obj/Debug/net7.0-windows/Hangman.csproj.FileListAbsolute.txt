@@ -67,3 +67,5 @@ D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-wi
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\NewGame.baml
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\Game.g.cs
 D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\Game.baml
+D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\Highscores.g.cs
+D:\Apps\VisualStudio\Source\Repos\23-24\sem1\Hangman\Hangman\obj\Debug\net7.0-windows\Views\Highscores.baml
