@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Game.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Headmenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,6 +18,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\Game.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Headmenu.xaml">
       <SubType>Designer</SubType>
     </Page>

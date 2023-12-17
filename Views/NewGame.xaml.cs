@@ -61,13 +61,25 @@ namespace Hangman.Views
 				string cleanWord = word.Trim('[', ']').Replace("\"", "");
 
 				// Display the retrieved word or handle it as needed
-				MessageBox.Show($"Random word: {cleanWord}");
+				// MessageBox.Show($"Random word: {cleanWord}");
+
+				// Go to next window
+				StartGame(cleanWord);
+				Close();
+
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show($"Error: {ex.Message}");
 			}
 		}
+
+		private void StartGame(string cleanWord)
+		{
+			Game game = new Game(cleanWord);
+			game.Show();
+		}
+
 		private async Task<string> GetRandomWord(string apiUrl)
 		{
 			HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
