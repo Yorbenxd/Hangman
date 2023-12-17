@@ -20,9 +20,11 @@ namespace Hangman
     /// </summary>
     public partial class Headmenu : Window
     {
-        public Headmenu()
+		string currentUser = "";
+        public Headmenu(string _currentUser)
         {
             InitializeComponent();
+			currentUser = _currentUser;
         }
 
 		private void mnuNewGame_Click(object sender, RoutedEventArgs e)
@@ -33,7 +35,7 @@ namespace Hangman
 
 		private void StartNewGame()
 		{
-			NewGame newGame = new NewGame();
+			NewGame newGame = new NewGame(currentUser);
 			newGame.Show();
 		}
 

@@ -21,6 +21,8 @@ namespace Hangman
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+
+		private string currentUser = "";
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -39,6 +41,7 @@ namespace Hangman
 
                 if (userFound && passwordCorrect)
                 {
+					currentUser = username;
 					GrantAccess();
 					Close();
                 }
@@ -49,7 +52,7 @@ namespace Hangman
 
 		private void GrantAccess()
 		{
-			Headmenu headmenu = new Headmenu();
+			Headmenu headmenu = new Headmenu(currentUser);
 			headmenu.Show();
 		}
 

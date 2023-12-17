@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hangman.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,29 +15,29 @@ using System.Windows.Shapes;
 
 namespace Hangman.Views
 {
-    /// <summary>
-    /// Interaction logic for Game.xaml
-    /// </summary>
-    public partial class Game : Window
-    {
+	public partial class Game : Window
+	{
+		string currentUser = "";
 		private string secretWord;
-		List<char> guessedLetters = new List<char>();
 
+		List<char> guessedLetters = new List<char>();
 		List<char> rightLetters = new List<char>();
 		List<char> wrongLetters = new List<char>();
+
 		private int livesLeft = 10;
 		private int imageBackground = 1;
 
-		public Game(string cleanWord)
-        {
-            InitializeComponent();
+		public Game(string cleanWord, string _currentUser)
+		{
+			InitializeComponent();
 			secretWord = cleanWord;
+			currentUser = _currentUser;
 			MaskWord();
 		}
 
 		private void MaskWord()
 		{
-			foreach(char c in secretWord)
+			foreach (char c in secretWord)
 			{
 				lblSecretWord.Content += "__ ";
 			}
@@ -50,39 +51,43 @@ namespace Hangman.Views
 
 		private void BackToHeadmenu()
 		{
-			Headmenu headmenu = new Headmenu();
+			Headmenu headmenu = new Headmenu(currentUser);
 			headmenu.Show();
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			char guessedLetter = txtGuess.Text[0];
-			lblSecretWord.Content = "";
-
-			if (char.IsLetter(guessedLetter))
+			if (txtGuess.Text != "")
 			{
-				if (secretWord.Contains(guessedLetter) && !guessedLetters.Contains(guessedLetter))
+				char guessedLetter = txtGuess.Text[0];
+				lblSecretWord.Content = "";
+
+				if (char.IsLetter(guessedLetter))
 				{
-					RightGuess(guessedLetter);
+					if (secretWord.Contains(guessedLetter) && !guessedLetters.Contains(guessedLetter))
+					{
+						RightGuess(guessedLetter);
+					}
+					else if (!secretWord.Contains(guessedLetter) && !guessedLetters.Contains(guessedLetter))
+					{
+						WrongGuess(guessedLetter);
+					}
+					else if (guessedLetters.Contains(guessedLetter))
+					{
+						MessageBox.Show("You have already guessed this letter!", "Oops");
+					}
+
+					UpdateMaskedWord();
+
+					UpdateWrongLetters();
+
+					CheckLivesLeft();
+
+					CheckIfWordGuessed();
 				}
-				else if(!secretWord.Contains(guessedLetter) && !guessedLetters.Contains(guessedLetter))
-				{
-					WrongGuess(guessedLetter);
-				}
-				else if (guessedLetters.Contains(guessedLetter))
-				{
-					MessageBox.Show("You have already guessed this letter!", "Oops");
-				}
-
-				UpdateMaskedWord();
-
-				UpdateWrongLetters();
-
-				CheckLivesLeft();
-
-				CheckIfWordGuessed();
+				else MessageBox.Show("Please, only fill in letters!", "Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 			}
-			else MessageBox.Show("Please, only fill in letters!", "Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+			else MessageBox.Show("You can't do an empty guess!", "Error!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 		}
 
 		private void RightGuess(char guessedLetter)
@@ -143,8 +148,20 @@ namespace Hangman.Views
 
 			if (guessedWordWithoutSpaces == secretWord)
 			{
-				MessageBox.Show($"You have won with {livesLeft} lives left!", "Congratz!");
+				MessageBox.Show($"You have won with {livesLeft} lives left!", $"Congratz {currentUser}!");
 				btnGuess.IsEnabled = false;
+
+				// Add record to database
+				using (UserDataContext context = new UserDataContext())
+				{
+					context.Scores.Add(new Score
+					{
+						Name = currentUser,
+						LivesLeft = livesLeft,
+						Word = secretWord
+					});
+					context.SaveChanges();
+				}
 			}
 		}
 	}

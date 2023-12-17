@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Hangman.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Hangman
 		}
 
         public DbSet<User> Users { get; set; }
+		public DbSet<Score> Scores { get; set; }
 
     }
 }

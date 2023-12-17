@@ -22,10 +22,12 @@ namespace Hangman.Views
 	public partial class NewGame : Window
 	{
 		private readonly HttpClient httpClient = new HttpClient();
+		string currentUser = "";
 
-		public NewGame()
+		public NewGame(string _currentUser)
 		{
 			InitializeComponent();
+			currentUser = _currentUser;
 		}
 
 		private void mnuHeadmenu_Click(object sender, RoutedEventArgs e)
@@ -36,7 +38,7 @@ namespace Hangman.Views
 
 		private void BackToHeadmenu()
 		{
-			Headmenu headmenu = new Headmenu();
+			Headmenu headmenu = new Headmenu(currentUser);
 			headmenu.Show();
 		}
 
@@ -76,7 +78,7 @@ namespace Hangman.Views
 
 		private void StartGame(string cleanWord)
 		{
-			Game game = new Game(cleanWord);
+			Game game = new Game(cleanWord, currentUser);
 			game.Show();
 		}
 
